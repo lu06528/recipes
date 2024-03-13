@@ -1,0 +1,8 @@
+Moehrengemuese|0|1
+Moosgemues|0|1
+Shakshuka|1|1
+Chili con Carne|0|1
+Lasagne|0|0
+Brokkoli Lasagne|0|1
+Rucola Salat|1|1
+Bolognese|0|1
