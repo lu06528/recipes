@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezept hinzufügen</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+    <div class="header">
+        <h1>Rezepte von Familie Schäpers</h1>
+    </div>
+
+    <ul class="navi">
+        <li class="navi"><a href="/">Home</a></li>
+        <li class="navi"><a class="active" href="addRecipe">Neues Rezept</a></li>
+        <li class="navi"><a href="filter">Rezepte</a></li>
+    </ul>
+    
+    <div class="content">
+        <form action="/recipeAdded" method="post" class="recipeInput">
+            <h2>Rezept hinzufügen</h2>
+            <label for="recipeName">Name:</label>
+            <input name="recipeName">
+            <br>
+            <label for="veggie">Vegetarisch:</label>
+            <select name="veggie" id="veggie">
+                <option value="0">Nein</option>
+                <option value="1">Ja</option>
+            </select>
+            <br>
+            <label for="dadApproved">Isst Papa:</label>
+            <select name="dadApproved" id="dadApproved">
+                <option value="0">Nein</option>
+                <option value="1">Ja</option>
+            </select>
+            <button type="submit">Hinzufügen</button>
+        </form>
+    </div>
+</body>
+</html>

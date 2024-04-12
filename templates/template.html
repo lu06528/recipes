@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezepte</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+</head>
+<body>
+    <div class="header">
+        <h1>Rezepte von Familie Schäpers</h1>
+    </div>
+
+    <ul class="navi">
+        <li class="navi"><a href="/">Home</a></li>
+        <li class="navi"><a href="addRecipe">Neues Rezept</a></li>
+        <li class="navi"><a class="active" href="filter">Rezepte</a></li>
+    </ul>
+    
+    <div class="content">
+        <form action="/filter" name="filter" value="0" method="post">
+            <label for="filter">Filter:</label>
+            <select name="filter" id="filter">
+                <option value="0">Alle Rezepte</option>
+                <option value="1">Vegetarisch</option>
+                <option value="2">Isst Papa</option>
+            </select>
+            <button type="submit">Aktualisieren</button>
+        </form>
+
+        <h2>Ergebnisse:</h2>
+        {% for item in rows %}
+            <div class="rezept">
+                <p class="titel">{{ item[0] }}</p>
+                <form action="/updateRecipe" method="post">
+                    <button type="submit" name="updateButton" value="{{ item[0] }}" class="update">{{ item[1] }}</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!--<footer>
+        <p>Guten Hunger :I</p>
+    </footer>
+    <div class="footer">
+        <p>Guten Hunger</p>
+    </div>-->
+    
+</body>
+</html>
+
+<!--
+    TODO: Statt div zu nutzen, um ein Rezept anzuzeigen,
+    einen Knopf nehmen. Dieser hat als Value den Namen
+    des Rezeptes. Beim Klick wird in der Datenbank das
+    Datum des entsprechenden Rezeptes auf das heutige
+    aktualisiert. Find ich geil :)
+-->

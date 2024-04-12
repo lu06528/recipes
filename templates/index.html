@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezepte</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+    <div class="header">
+        <h1 style="color: green; font-style: italic;">Rezepte von Familie Schäpers</h1>
+    </div>
+
+    <ul class="navi">
+        <li class="navi"><a class="active" href="">Home</a></li>
+        <li class="navi"><a href="addRecipe">Neues Rezept</a></li>
+        <li class="navi"><a href="filter">Rezepte</a></li>
+    </ul>
+
+    <div style="margin: 0px 200px; height: 100%; background-color: aqua;">
+        <span>Fortnite</span>
+        <span>Fortnite</span>
+        <span>Fortnite</span>
+    </div>
+
+
+    <!--
+    <div class="container">
+        <header>
+            <h1>Rezepte von Familie Schäpers</h1>
+        </header>
+        <form action="/filter" method="post">
+            <button type="submit">Rezepte</button>
+        </form>
+        <form action="/addRecipe" method="post">
+            <button type="submit">Rezept hinzufügen</button>
+        </form>
+    </div> -->
+</body>
+</html>

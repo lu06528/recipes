@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine WebApp</title>
+    <style>
+        /* Stil für den Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+        
+        /* Stil für den Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: none;
+            z-index: 1000;
+        }
+        
+        /* Stil für den Content */
+        .content {
+            background-image: url('hintergrundbild.jpg');
+            background-repeat: repeat-y;
+            background-size: auto 100%;
+            padding: 20px;
+            margin-top: 50px; /* Platz für den Header */
+            margin-bottom: 50px; /* Platz für den Footer */
+        }
+        
+        /* Stil für die weißen Kästen */
+        .box {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Meine WebApp</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Startseite</a></li>
+            <li><a href="#">Über uns</a></li>
+            <li><a href="#">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="content">
+    <div class="box">Inhalt 1</div>
+    <div class="box">Inhalt 2</div>
+    <div class="box">Inhalt 3</div>
+    <!-- Weitere Inhalte hier einfügen -->
+</div>
+
+<footer>
+    <p>© 2024 Meine WebApp</p>
+</footer>
+
+<script>
+    // JavaScript, um den Footer beim Scrollen zu zeigen
+    window.addEventListener('scroll', function() {
+        var footer = document.querySelector('footer');
+        if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+            footer.style.display = 'block';
+        } else {
+            footer.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
