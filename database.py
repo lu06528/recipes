@@ -21,14 +21,14 @@ def addRecipe(db: sqlite3.Connection, cursor: sqlite3.Cursor, name: str, veggie:
 
     db.commit()
 
-def updateRecipeDate(cursor: sqlite3.Cursor, name: str, date: datetime.date):
+def updateRecipeDate(db: sqlite3.Connection, cursor: sqlite3.Cursor, name: str, date: datetime.date):
     cursor.execute(f"UPDATE recipes SET Zuletzt = '{date}' WHERE Name = '{name}';")
 
-    myDB.commit()
+    db.commit()
 
 def updateRecipeToday(db: sqlite3.Connection, cursor: sqlite3.Cursor, name: str):
     today = datetime.date.today()
-    cursor.execute(f"UPDATE recipes SET Zuletzt = '{today.strftime('%d.%m.%Y')}' WHERE Name = '{name}';")
+    cursor.execute(f"UPDATE recipes SET Zuletzt = '{today}' WHERE Name = '{name}';")
 
     db.commit()
 
@@ -46,7 +46,8 @@ def fetchRecipes(cursor: sqlite3.Cursor, filter):
     cursor.execute(query)
     result = []
     for(Rezept) in cursor:
-        rezeptTupel = (Rezept[0], Rezept[1])
+        recipeDate = Rezept[1].split('-')
+        rezeptTupel = (Rezept[0], recipeDate[2] + "." + recipeDate[1] + "." + recipeDate[0])
         result.append(rezeptTupel)
     return result
    
