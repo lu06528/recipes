@@ -17,7 +17,7 @@ def clearDB():
 
 def addRecipe(db: sqlite3.Connection, cursor: sqlite3.Cursor, name: str, veggie: int, dad: int) -> None:
     today = datetime.date.today()
-    cursor.execute(f"INSERT OR IGNORE INTO recipes(Name, Vegetarisch, Papa, Zuletzt) VALUES('{name}', {veggie}, {dad}, '{today.strftime("%d.%m.%Y")}');")
+    cursor.execute(f"INSERT OR IGNORE INTO recipes(Name, Vegetarisch, Papa, Zuletzt) VALUES('{name}', {veggie}, {dad}, '{today.strftime('%d.%m.%Y')}');")
 
     db.commit()
 
@@ -28,7 +28,7 @@ def updateRecipeDate(cursor: sqlite3.Cursor, name: str, date: datetime.date):
 
 def updateRecipeToday(db: sqlite3.Connection, cursor: sqlite3.Cursor, name: str):
     today = datetime.date.today()
-    cursor.execute(f"UPDATE recipes SET Zuletzt = '{today.strftime("%d.%m.%Y")}' WHERE Name = '{name}';")
+    cursor.execute(f"UPDATE recipes SET Zuletzt = '{today.strftime('%d.%m.%Y')}' WHERE Name = '{name}';")
 
     db.commit()
 
