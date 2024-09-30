@@ -17,10 +17,10 @@ def get_db():
         local.recipes_db = sqlite3.connect('recipes.db')
     return local.recipes_db
 
-@app.teardown_appcontext
-def close_db(error):
-    if hasattr(local, 'recipes_db'):
-        local.recipes_db.close()
+#@app.teardown_appcontext
+#def close_db(error):
+#    if hasattr(local, 'recipes_db'):
+#        local.recipes_db.close()
 
 @app.route('/')
 def index():
